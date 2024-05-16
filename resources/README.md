@@ -3,28 +3,33 @@
 ### I am giving steps to deploy in local machine
 
 # step 1: SetUp Environment *(Ignore if already done)
-*     clone the repository
-#   `git clone https://github.com/Hello-Sai/StockMonitor.git`
-*    Installing Modules (or) Libraries in working environment
-##    `pip install -r requirements.txt`
+`    clone the repository`
+*  `git clone https://github.com/Hello-Sai/StockMonitor.git`
+
+
+`   Installing Modules (or) Libraries in working environment`
+
+*    `pip install -r requirements.txt`
 
 
 ##     Please give Database details in .env
-*     ![alt text](image.png)
+
+![alt text](image-13.png)
+
 
 ##      If you are familiar with settings.py file You can change directly here
 
-*      ![alt text](image-1.png)
+#     ![alt text](image-1.png)
 
 
 # React Project is inside the directory ui
 
 
 # Please Add the node_modules through package.json. or manually in react
-* To start the react application run
+`To start the react application run`
 
 
-##      `cd ui & npm start` 
+*      `cd ui & npm start` 
 
 
 ## Home Page will be displayed and asks for login with account to see the stocks
