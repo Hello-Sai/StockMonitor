@@ -1,0 +1,19 @@
+
+/*   
+.heart-icon {
+display: none;  Initially hide the heart icon
+margin-left: 5px;  Adjust the spacing as needed 
+}*/
+
+/*
+.heart-icon{
+    content: 'clicked';
+    color: aqua;
+} */
+
+tr:hover{
+    border: 2px solid black;
+    color: white;
+    font-weight:bolder;
+    background-color: rgba(229, 140, 155, 0.886);
+}
