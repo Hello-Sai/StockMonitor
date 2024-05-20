@@ -7,10 +7,6 @@ import Login from './components/Login'
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie'
 import api from './components/api';
-import axios from 'axios';
-axios.defaults.xsrfCookieName='csrftoken'
-axios.defaults.xsrfHeaderName='X-CSRFToken'
-axios.defaults.withCredentials = true
 function App() {
   const [page,setPage] = useState('Home')
   const [stocks,setStocks] = useState([{}])
@@ -18,7 +14,11 @@ function App() {
   useEffect(() =>
     {
       console.log(currentUser)
-      currentUser && api.get('stocks/get_stocks_list')
+      currentUser && api.get('stocks/get_stocks_list',{
+        headers:{
+        'X-CSRFToken': Cookies.get('csrftoken')
+      }
+      })
      .then(function(res){
          console.log(res.data)
          setStocks(res.data)
@@ -57,9 +57,12 @@ function App() {
     // e.preventDefault();
     e.preventDefault();
     await api.post('accounts/login',{
+        headers:{
+        'X-CSRFToken': Cookies.get('csrftoken')
+      },
       username:e.target.username.value,
       password:e.target.password.value
-    }).then(res => {alert(res.data);setCurrentUser(true);setPage('Home');window.location.reload()}).catch(err =>{
+    }).then(res => {alert(res.data);setCurrentUser(true);setPage('Home')}).catch(err =>{
       
        alert(JSON.stringify(err.response))})
 
@@ -68,6 +71,9 @@ function App() {
   const HandleRegistrationSubmit = async (e) =>{
     e.preventDefault();
     await api.post('accounts/register',{
+        headers:{
+        'X-CSRFToken': Cookies.get('csrftoken')
+      },
       username:e.target.username.value,
       password:e.target.password.value
     }).then(res => {
@@ -78,6 +84,9 @@ function App() {
   }
   const handleLogout = () =>{
     api.get(`accounts/logout`,{
+      headers:{
+      'X-CSRFToken': Cookies.get('csrftoken')
+    }
       // withCredentials:true
     })
     .then(function(res){

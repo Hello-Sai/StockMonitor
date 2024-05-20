@@ -4,7 +4,7 @@ axios.defaults.xsrfCookieName='csrftoken'
 axios.defaults.xsrfHeaderName='X_CSRFTOKEN'
 axios.defaults.withCredentials = true
 const api = axios.create({
-  baseURL: 'http://localhost:8000/', // Change this to your API base URL
+  baseURL: 'https://dagudusai.pythonanywhere.com/', // Change this to your API base URL
   headers: {
     'Content-Type': 'application/json',
     // Function to get CSRF token from cookies
