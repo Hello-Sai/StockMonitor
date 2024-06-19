@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons';
 import '../styles/table.css';
 import api from './api'
-const Table = ({ data ,user}) => {
+const Table = ({ data ,user,setPage}) => {
   const [colors, setColors] = useState({})
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Table = ({ data ,user}) => {
         action: colors[stockId] ? 'remove' : 'add',
       })
       .then((res) => {
-        window.location.reload();
+        setPage('home')
       })
       .catch((err) => alert(err));
       },500)

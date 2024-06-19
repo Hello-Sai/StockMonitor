@@ -109,7 +109,7 @@ function App() {
                   // {id:1,symbol:2,low:1,high:5,open:2,close:10,volume:7,timezone:6,timestamp:2}
               } />
               case "WatchList":
-                return <Table user={currentUser} data={stocks.filter(data => data.is_watchlisted ===true)}  />
+                return <Table setPage={setPage} user={currentUser} data={stocks.filter(data => data.is_watchlisted ===true)}  />
               case "Logout":
                 return handleLogout();
 
