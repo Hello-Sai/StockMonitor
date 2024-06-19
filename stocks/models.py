@@ -10,3 +10,7 @@ class Stock(models.Model):
     timezone = models.CharField(max_length=25)
     volume = models.CharField(max_length=4)
     open = models.CharField(max_length=10)
+
+    @property
+    def amount(self):
+        self.high -100

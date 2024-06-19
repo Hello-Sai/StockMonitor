@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-
+from django.conf import settings
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView,RetrieveUpdateAPIView
 from accounts.models import WatchList
@@ -40,6 +40,5 @@ class WatchListModView(APIView):
         return Response({'error':'Invalid Action'},status=400)
         # instance = self.get_object()
         # serializer = self.get_serializer(instance)
-
 
 
